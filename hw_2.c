@@ -76,6 +76,34 @@ while (attempt < max_attempts)
     
                         getch();  
                         break;
+
+                         case 'b':
+                    case 'B':
+                        int num;
+    
+                        printf("\n請輸入一個整數（1至9）：");
+                        fflush(stdin);
+                        if (scanf("%d", &num) != 1 || num < 1 || num > 9)
+                        {
+                            printf("\n錯誤的輸入！請輸入1至9之間的整數。");
+                            getch();  
+                            fflush(stdin); // 清空輸入緩衝區
+                            break;
+                        }
+    
+                        system("cls");
+                        for (int i = 1; i <= num; i++)
+                        {
+                            for (int j = 1; j <= num; j++)
+                            {
+                                printf("%d＊%d＝%2d  ", j, i, i * j); // 調整了乘法表的格式
+                            }
+                            printf("\n");
+                        }
+    
+                        getch();  
+                        break;
+                        
                 }
         }
     }
