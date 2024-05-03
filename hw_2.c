@@ -77,7 +77,7 @@ while (attempt < max_attempts)
                         getch();  
                         break;
 
-                         case 'b':
+                    case 'b':
                     case 'B':
                         int num;
     
@@ -102,6 +102,30 @@ while (attempt < max_attempts)
                         }
     
                         getch();  
+                        break;
+
+                    case 'c':
+                    case 'C':
+                        char exit_choice;
+    
+                        printf("\nContinue？（y/n）");
+                        exit_choice = getch();
+    
+                        if (exit_choice == 'y' || exit_choice == 'Y')
+                        {
+                            break;
+                        }
+                        else if (exit_choice == 'n' || exit_choice == 'N')
+                        {
+                            printf("\n程式結束，返回作業系統。");
+                            return 0;
+                        }
+                        else
+                        {
+                            printf("\n錯誤的輸入！請輸入 y 或 n，重新輸入。");
+                            getch();
+                            fflush(stdin); // 清空輸入緩衝區
+                        }
                         break;
                         
                 }
