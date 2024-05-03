@@ -38,6 +38,44 @@ while (attempt < max_attempts)
 
             printf("輸入A、B、C以繼續，不分大小寫：");
             choice = getch();
+
+             switch (choice)
+                {
+                    case 'a':
+                    case 'A':
+                        char character;
+                        int height;
+                        printf("\n請輸入一個字元（a 到 n）：");
+                        fflush(stdin);
+                        scanf(" %c", &character);
+    
+                        if (character < 'a' || character > 'n')
+                        {
+                            printf("\n錯誤的輸入！請重新輸入。");
+                            getch();  
+                            fflush(stdin); // 清空輸入緩衝區
+                            break;
+                        }
+                        else
+                        {
+                            system("cls");
+                            height = character - 'a' + 1;  
+                        }
+                        for (int row = 1; row <= height; row++)
+                        {
+                            for (int space = 1; space <= height - row; space++)
+                            {
+                                printf(" ");
+                            }
+                            for (char col = character - row + 1; col <= character; col++)
+                            {
+                                printf("%c", col);
+                            }
+                            printf("\n");
+                        }
+    
+                        getch();  
+                        break;
+                }
         }
     }
-}
