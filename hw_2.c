@@ -9,7 +9,7 @@ int main()
     int attempt = 0;     
     int choice;
     const int max_attempts = 3;
-}
+
 
     for(int i=1;i<20;i++)
     {
@@ -17,4 +17,4 @@ int main()
 	}
 	system("pause");
     system("cls");
-   
+}
