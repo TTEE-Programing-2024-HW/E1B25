@@ -10,3 +10,11 @@ int main()
     int choice;
     const int max_attempts = 3;
 }
+
+    for(int i=1;i<20;i++)
+    {
+    	 printf("Hello\n");
+	}
+	system("pause");
+    system("cls");
+   
