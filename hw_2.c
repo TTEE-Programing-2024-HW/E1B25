@@ -131,3 +131,19 @@ while (attempt < max_attempts)
                 }
         }
     }
+    else
+        {
+            attempt++;
+            printf("\n密碼錯誤！這是第 %d 次嘗試，還剩 %d 次機會。\n", attempt, max_attempts - attempt);
+            
+            if (attempt == max_attempts)
+            {
+                printf("\n密碼錯誤次數已達上限，程式即將結束。");
+                
+                return 1; 
+            }
+        }
+    }
+    
+    return 0;
+}
