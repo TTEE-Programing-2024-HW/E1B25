@@ -138,3 +138,45 @@ void displaySeats() {
         printf("\n");
     }
 }
+
+// 安排座位
+void arrangeSeats() {
+    int numSeats;
+    printf("請輸入所需座位數（1-4）：");
+    scanf("%d", &numSeats);
+    if (numSeats < 1 || numSeats > 4) {
+        printf("無效輸入！\n");
+        return;
+    }
+
+    int row, col;
+    int found = 0;
+    int attempts = 0; // 追蹤嘗試次數
+    while (!found && attempts < 100) { // 限制嘗試次數以避免無限迴圈
+        row = rand() % ROW;
+        col = rand() % (COL - numSeats + 1); // 修正以確保正確範圍
+        if (checkAvailability(row, col, numSeats)) {
+            found = 1;
+            break;
+        }
+        attempts++;
+    }
+
+    if (!found) {
+        printf("找不到 %d 人連續座位。\n", numSeats);
+        return;
+    }
+
+    for (int i = 0; i < numSeats; ++i)
+        seats[row][col + i] = '@';
+    displaySeats();
+
+    char choice;
+    printf("您對此安排滿意嗎？（y/n）：");
+    scanf(" %c", &choice);
+    if (choice != 'y') {
+        for (int i = 0; i < numSeats; ++i)
+            seats[row][col + i] = '-';
+        return;
+    }
+}
