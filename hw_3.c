@@ -15,3 +15,7 @@ void displaySeats();
 void arrangeSeats();
 void chooseSeats();
 int checkAvailability(int row, int col, int count);
+  for(int i = 0; i < 20; i++) {
+        printf("Hello!\n");
+    }
+ 
