@@ -127,3 +127,14 @@ void displayMainMenu() {
     printf("|  d. 退出                    |\n");
     printf("----------------------------------\n");
 }
+// 顯示座位
+void displaySeats() {
+    printf("  123456789\n");
+    for (int i = 0; i < ROW; ++i) {
+        printf("%d ", i + 1);
+        for (int j = 0; j < COL; ++j) {
+            printf("%c", seats[i][j]);
+        }
+        printf("\n");
+    }
+}
