@@ -116,3 +116,14 @@ void initializeSeats() {
         seats[row][col] = '*';
     }
 }
+
+// 顯示主選單
+void displayMainMenu() {
+    system("cls");
+    printf("----------[預訂系統]----------\n");
+    printf("|  a. 可用座位                |\n");
+    printf("|  b. 安排座位                |\n");
+    printf("|  c. 自選座位                |\n");
+    printf("|  d. 退出                    |\n");
+    printf("----------------------------------\n");
+}
