@@ -49,10 +49,16 @@ int main() {
                         getch();
                         displayMainMenu();
                         break;
-                        case 'b':
+                    case 'b':
                     case 'B':
                         system("cls");
                         arrangeSeats();
+                        displayMainMenu();
+                        break;
+                    case 'c':
+                    case 'C':
+                        system("cls");
+                        chooseSeats();
                         displayMainMenu();
                         break;
 
