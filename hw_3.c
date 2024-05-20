@@ -61,6 +61,26 @@ int main() {
                         chooseSeats();
                         displayMainMenu();
                         break;
+                        case 'd':
+                    case 'D':
+                        char exit_choice;
+                        printf("\n繼續？ (y/n)：");
+                        exit_choice = getch();
+                        if (exit_choice == 'n' || exit_choice == 'N') {
+                            printf("\n程式結束。返回作業系統。");
+                            return 0;
+                        } else if (exit_choice == 'y' || exit_choice == 'Y') {
+                            system("cls");
+                            displayMainMenu();
+                        } else {
+                            printf("\n無效輸入！請輸入 y 或 n。\n");
+                        }
+                        break;
+                    default:
+                        printf("\n無效選項！\n");
+                        break;
+                }
+            }    
 
             
 
