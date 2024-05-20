@@ -180,3 +180,38 @@ void arrangeSeats() {
         return;
     }
 }
+
+// 選擇座位
+void chooseSeats() {
+    int row, col;
+    printf("請輸入行號（1-9）：");
+    scanf("%d", &row);
+    printf("請輸入列號（1-9）：");
+    scanf("%d", &col);
+    row--; // 調整為陣列索引
+    col--; // 調整為陣列索引
+    printf("Debug: row=%d, col=%d\n", row + 1, col + 1); // 除錯語句
+    if (row < 0 || row >= ROW || col < 0 || col >= COL) {
+        printf("無效座位選擇！\n");
+        return;
+    }
+    if (seats[row][col] == '*') {
+        printf("該座位已預訂！\n");
+        return;
+    }
+    seats[row][col] = '@';
+    printf("座位預訂成功！\n");
+    displaySeats();
+}
+
+// 檢查座位是否可用
+int checkAvailability(int row, int col, int count) {
+    if (row < 0 || row >= ROW || col < 0 || col + count > COL) // 調整條件
+        return 0;
+    for (int i = 0; i < count; ++i) {
+        if (seats[row][col + i] == '*')
+            return 0;
+    }
+    return 1;
+}
+
