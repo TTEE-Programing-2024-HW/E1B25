@@ -214,4 +214,4 @@ int checkAvailability(int row, int col, int count) {
     }
     return 1;
 }
-
+//這次的排位系統我覺得很有趣，雖然程式碼寫起來很難,但在Chatgpt的輔助下,我終於把功能做出來了
