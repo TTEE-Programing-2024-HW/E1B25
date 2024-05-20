@@ -81,11 +81,7 @@ int main() {
                         break;
                 }
             }    
-
-            
-
-           
-                
+  
         } else { // 錯誤的密碼
             attempt++;
             printf("密碼錯誤！第 %d 次嘗試，共 %d 次。請再試一次。\n", attempt, max_attempts);
@@ -99,4 +95,24 @@ int main() {
     }
     
     return 0;
+}
+
+// 隨機初始化座位
+void initializeSeats() {
+    srand(time(NULL));
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            seats[i][j] = '-';
+        }
+    }
+
+    // 隨機設置 10 個已預訂的座位
+    for (int i = 0; i < 10; ++i) {
+        int row, col;
+        do {
+            row = rand() % ROW;
+            col = rand() % COL;
+        } while (seats[row][col] == '*');
+        seats[row][col] = '*';
+    }
 }
