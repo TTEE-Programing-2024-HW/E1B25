@@ -30,6 +30,25 @@ int main() {
      while (attempt < max_attempts) {
         if (pw_input == pass) { // 正確的密碼
             printf("歡迎！密碼驗證成功。\n");
+              // 初始化座位
+            initializeSeats();
+
+            // 顯示主選單
+            displayMainMenu();
+
+            while (1) { // 主選單迴圈
+                printf("請輸入您的選擇 (a, b, c, or d)：");
+                choice = getch(); // 隱藏使用者輸入
+
+                switch (choice) {
+                    case 'a':
+                    case 'A':
+                        system("cls");
+                        displaySeats();
+                        printf("按任意鍵返回主選單。");
+                        getch();
+                        displayMainMenu();
+                        break;
 
             
 
