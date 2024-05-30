@@ -123,3 +123,45 @@ void enter_student_grades(Student students[], int *student_count) {
 
     *student_count = n; // 更新學生數量
 }
+// 函數顯示所有學生成績
+void display_student_grades(Student students[], int student_count) {
+    clear_screen();
+    // 循環顯示每個學生的詳細信息
+    for (int i = 0; i < student_count; i++) {
+        printf("姓名: %s, 學號: %d, 數學: %d, 物理: %d, 英文: %d, 平均: %.1f\n",
+            students[i].name, students[i].student_id, students[i].math,
+            students[i].physics, students[i].english, students[i].average);
+    }
+    printf("按任意鍵返回主菜單...");
+    getchar(); // 等待用戶輸入
+    getchar(); // 清除輸入緩衝區
+}
+
+// 函數按姓名搜索學生成績
+void search_student_grades(Student students[], int student_count) {
+    char name[50];
+    int found = 0;
+
+    clear_screen();
+    printf("輸入要搜索的姓名: ");
+    scanf("%s", name);
+
+    // 循環按姓名查找學生
+    for (int i = 0; i < student_count; i++) {
+        if (strcmp(students[i].name, name) == 0) {
+            printf("姓名: %s, 學號: %d, 數學: %d, 物理: %d, 英文: %d, 平均: %.1f\n",
+                students[i].name, students[i].student_id, students[i].math,
+                students[i].physics, students[i].english, students[i].average);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("未找到該學生。\n");
+    }
+
+    printf("按任意鍵返回主菜單...");
+    getchar(); // 等待用戶輸入
+    getchar(); // 清除輸入緩衝區
+}
