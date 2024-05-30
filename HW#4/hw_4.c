@@ -165,3 +165,45 @@ void search_student_grades(Student students[], int student_count) {
     getchar(); // 等待用戶輸入
     getchar(); // 清除輸入緩衝區
 }
+
+// 函數按平均成績排名學生
+void grade_ranking(Student students[], int student_count) {
+    clear_screen();
+    // 使用冒泡排序按平均成績排名學生
+    for (int i = 0; i < student_count - 1; i++) {
+        for (int j = 0; j < student_count - i - 1; j++) {
+            if (students[j].average < students[j + 1].average) {
+                Student temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+
+    // 顯示排名後的學生
+    for (int i = 0; i < student_count; i++) {
+        printf("姓名: %s, 學號: %d, 平均: %.1f\n",
+            students[i].name, students[i].student_id, students[i].average);
+    }
+
+    printf("按任意鍵返回主菜單...");
+    getchar(); // 等待用戶輸入
+    getchar(); // 清除輸入緩衝區
+}
+
+// 函數確認退出系統
+void exit_system() {
+    char choice;
+    printf("確定要退出嗎？ (y/n): ");
+    while (1) {
+        choice = getchar();
+        if (choice == 'y' || choice == 'Y') {
+            exit(0); // 退出程序
+        } else if (choice == 'n' || choice == 'N') {
+            break; // 返回主菜單
+        } else {
+            printf("輸入無效。請輸入 'y' 或 'n': ");
+            while (getchar() != '\n'); // 清除輸入緩衝區
+        }
+    }
+}
