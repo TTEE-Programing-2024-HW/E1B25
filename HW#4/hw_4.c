@@ -207,3 +207,48 @@ void exit_system() {
         }
     }
 }
+
+int main() {
+    Student students[MAX_STUDENTS]; // 用於存儲學生數據的數組
+    int student_count = 0;          // 初始化學生計數
+    char choice;                   
+// 用於存儲用戶菜單選擇的變量
+
+    welcome_screen(); // 顯示歡迎畫面並驗證密碼
+
+    // 主循環，顯示菜單並處理用戶選擇
+    while (1) {
+        clear_screen();
+        display_menu(); // 顯示主菜單
+        choice = getchar();
+        while (getchar() != '\n');  // 清除輸入緩衝區
+
+        // 處理用戶選擇
+        switch (choice) {
+            case 'a':
+                enter_student_grades(students, &student_count); // 輸入學生成績
+                break;
+            case 'b':
+                display_student_grades(students, student_count); // 顯示學生成績
+                break;
+            case 'c':
+                search_student_grades(students, student_count); // 搜索學生成績
+                break;
+            case 'd':
+                grade_ranking(students, student_count); // 顯示成績排名
+                break;
+            case 'e':
+                exit_system(); // 確認並退出系統
+                break;
+            default:
+                printf("選擇無效。請重試。\n");
+                printf("按任意鍵返回主菜單...");
+                getchar(); // 等待用戶輸入
+        }
+    }
+
+    return 0;
+}
+
+
+//在這次的作業裡，我覺得對我來說有點複雜，所以我想了好久才想出來，希望下此能對程式碼更有想法然後寫快一點 
